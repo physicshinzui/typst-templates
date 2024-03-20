@@ -16,6 +16,7 @@
 #import "@preview/ctheorems:1.1.2": *
 #show: thmrules.with(qed-symbol: $square$)
 #let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
+#let proposition = thmbox("proposition", "Proposition", fill: rgb("#eeffee"))
 #let corollary = thmplain(
   "corollary",
   "Corollary",
