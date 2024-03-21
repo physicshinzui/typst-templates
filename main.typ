@@ -1,49 +1,6 @@
-// ======== Preamble =========
-
-#let is_en = 1
-// Styling
-// #set text(lang:"ja", font:"YuMincho",  size:11pt) 
-#set text(lang:"en", font: "New Computer Modern", size:11pt)
-
-#set heading(numbering: "1.")
-#set page(numbering: "1")
-// #show link: underline
-
-// For Equation's behaviour 
-#set math.equation(numbering: "(1)", supplement: [Eq])
-
-// For theorem environment : https://typst.app/universe/package/ctheorems
-#import "@preview/ctheorems:1.1.2": *
-#show: thmrules.with(qed-symbol: $square$)
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
-#let proposition = thmbox("proposition", "Proposition", fill: rgb("#eeffee"))
-#let corollary = thmplain(
-  "corollary",
-  "Corollary",
-  // base: "theorem",
-  titlefmt: strong
-)
-#let definition = thmbox("definition", "Definition",fill: luma(245)).with(numbering: "1.")
-#let example = thmplain("example", "Example").with(numbering: "1.")
-#let proof = thmproof("proof", "Proof")
-
-// For Physics environment
-#let requirement = thmbox("requirement", "Requirement", fill: rgb("#eeffee"))
-#let result = thmbox("result", "Result", fill: rgb("#eeffee"))
-#let derivation = thmproof("derivation", "Derivation")
-
-// For matrix and vector expression
-#set math.vec(delim: "[") 
-#set math.mat(delim: "[") 
-
-// Figure 
-// #set figure
-// #show figure.caption: emph
-#show figure.where(
-  kind: table
-): set figure.caption(position: top)
+#import "conf.typ": *
+#show: doc => conf(doc)
 // =========================
-
 // Useful resources:
 // - https://typst.app/docs/reference/math/ 
 // - https://typst.app/docs/reference/model/bibliography/
@@ -61,6 +18,7 @@
 //           dots.v, dots.v, dots.down,dots.v; 
 //           a_(n 1), a_(n 2), ..., a_(n n)) $ <ex_mat>
 
+//=========Main text===========
 #let title = [
  題目, title
 ]
