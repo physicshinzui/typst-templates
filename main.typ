@@ -1,5 +1,10 @@
 #import "conf.typ": *
-#show: doc => conf(doc)
+#show: conf.with(
+  title: "Template",
+  author: "Shinji Iida",
+  toc: true,
+  bibliography-file: "paperpile.bib")
+
 // =========================
 // Useful resources:
 // - https://typst.app/docs/reference/math/ 
@@ -19,20 +24,8 @@
 //           a_(n 1), a_(n 2), ..., a_(n n)) $ <ex_mat>
 
 //=========Main text===========
-#let title = [
- 題目, title
-]
-#let authors = [Shinji Iida]
-#align(center, text(20pt, font:"Gothic")[
-  *#title*
-])
-#align(center)[
-  #authors
-]
-#outline()
 
 = section
-
 == Basics
 #definition[
   Write a definition. 定義を書いてください。
@@ -100,4 +93,3 @@ We can cite like: @2021-iy @Poincare1908-am @Atkins2011-rd
 )
 
 
-#bibliography(title:"References", style:"ieee","paperpile.bib")
