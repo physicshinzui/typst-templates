@@ -1,13 +1,29 @@
 // ======== Preamble =========
 #import "@preview/ctheorems:1.1.2": *
 
-#let conf(doc) = { 
+// Define my template as a function `conf`
+#let conf(
+  title: "Title",
+  author: "Authors",
+  date: datetime.today().display(),
+  toc: false, 
+  bibliography-file: none,
+  doc
+  ) = { 
   // For Styling
   // set text(lang:"ja", font:"YuMincho",  size:11pt) 
   set text(lang:"en", font: "New Computer Modern", size:11pt)
   set heading(numbering: "1.")
   set page(numbering: "1")
   // #show link: underline
+
+  align(center, text(20pt, font:"Gothic")[
+    *#title*
+  ])
+  align(center)[
+    #author \
+    #date
+  ]
 
   // For Equation's behaviour 
   set math.equation(numbering: "(1)", supplement: [Eq])
@@ -34,7 +50,7 @@
     fill: luma(240),
     inset: (x: 3pt, y: 0pt),
     outset: (y: 3pt),
-    radius: 2pt,
+    radius: 2pt, 
   )
   // Display block code in a larger block
   // with more padding.
@@ -43,7 +59,16 @@
     inset: 10pt,
     radius: 4pt,
   )
+  
+  if toc == true {
+    outline()
+  }
+  
   doc
+
+  // Put this after `doc`
+  bibliography(title:"References", style:"ieee", bibliography-file)
+
 }
 
 // For theorem environement
