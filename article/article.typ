@@ -4,7 +4,7 @@
   authors: (
     (
       name: [Shinji Iida],
-      affiliation: [School of Frontier Enginnering, \ Kitasato University],
+      affiliation: [School of Frontier Enginnering, Kitasato University],
       email: "iida.shinji@kitasato-u.ac.jp",
     ),
     (
@@ -15,7 +15,7 @@
   ),
   abstract: lorem(80),
   bib: "../paperpile.bib",
-  heading-numbering: none,
+  heading-numbering: "1.",
   is-supporting-info: false,
   doc,
 )
@@ -36,6 +36,10 @@
 $ 
 m (d^2 x) / (d t^2) = F
 $
+$
+F(s; beta) = - beta log p(s; beta)
+$
+where $p(s; beta)$ is a probabiilty density of a reaction coordinate $s$ weighted by the canonical distribution.
 
 == Dataset 
 #lorem(20)

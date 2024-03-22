@@ -16,7 +16,8 @@
   text(17pt, title)
 
   let count = authors.len()
-  let ncols = calc.min(count, 3)
+  let ncols = calc.min(count, 1)
+
   grid(
     columns: (1fr,) * ncols,
     row-gutter: 24pt,
@@ -26,7 +27,12 @@
       #link("mailto:" + author.email)
     ]),
   )
-  
+
+
+
+
+
+
   if abstract != none{
     par(justify: true)[
       *Abstract* \
@@ -49,7 +55,12 @@
     heading-numbering = "A.1"
   }
   set heading(numbering: heading-numbering)
-  
+
+  // show heading.where(level:2): it => text(
+  //   style:"italic", 
+  //   it.body + [.]
+  //   )
+
   doc
   bibliography(bib, title: "References", style: "ieee")
 }
