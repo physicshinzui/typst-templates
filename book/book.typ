@@ -1,9 +1,13 @@
-#import "conf.typ": *
-#show: conf.with(
-  title: "Template",
+#import "book-template.typ": *
+#show: doc => conf(
+  title: "Template, テンプレ",
   author: "Shinji Iida",
   toc: true,
-  bibliography-file: "paperpile.bib")
+  lang: "en",
+  font: "New Computer Modern", // "Hiragino Kaku Gothic Pro",
+  bibliography-file: "../paperpile.bib", 
+  doc
+)
 
 // =========================
 // Useful resources:
@@ -11,24 +15,12 @@
 // - https://typst.app/docs/reference/model/bibliography/
 // - https://typst.app/docs/reference/model/figure/
 
-// Examples I should remember later on
-// $ bb(b) $
-// $ bb(N) = NN $
-// $ f: NN -> RR$
-// #footnote[This is a footnote.]
-// $ bold(v) = vec(1,2,2) in RR^3 $
-// $ mat(1, 2; 3, 4) $
-// $ A = mat(a_11, a_12, ..., a_(1n); 
-//           a_21, a_22, ..., a_(2n); 
-//           dots.v, dots.v, dots.down,dots.v; 
-//           a_(n 1), a_(n 2), ..., a_(n n)) $ <ex_mat>
-
 //=========Main text===========
 
 = section
 == Basics
 #definition[
-  Write a definition. 定義を書いてください。
+  Write a definition. 定義(definition)を書いてください。
 ] <def>
 
 @def can be referred by using `@def`.#footnote[This is a footnote.]
@@ -47,7 +39,9 @@ Write a proof.
 $ y = a x $ <lin_eq>
 You can refer to an equation using `@name` like @lin_eq.
 ]
+#lemma[Ito lemma][
 
+]
 #corollary[
 Put a corollary.
 ] <cor>
@@ -74,12 +68,16 @@ $m a = F$
   For more details for math symbols, see #link("https://typst.app/docs/reference/symbols/sym/")[HERE]
 ]
 
+#claim[
 We can cite like: @2021-iy @Poincare1908-am @Atkins2011-rd
-
+]
+#remark[
+  I remark here.
+]
 == How to insert a figure
 @pigeon shows a pigeion flying in the sky.
 #figure(
-  image("pigeon_free.png", width: 50%),
+  image("../pigeon_free.png", width: 50%),
   caption: [A pigeion flying],
 ) <pigeon>
 

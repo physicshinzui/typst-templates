@@ -6,16 +6,24 @@
   title: "Title",
   author: "Authors",
   date: datetime.today().display(),
+  lang: "en",
+  font: "New Computer Modern",
   toc: false, 
   bibliography-file: none,
-  doc
+  doc,
   ) = { 
   // For Styling
-  // set text(lang:"ja", font:"YuMincho",  size:11pt) 
-  set text(lang:"en", font: "New Computer Modern", size:11pt)
+  if lang == "en" {
+    font = font
+  } else {
+    font = font
+  }
+  set text(lang:lang, font:font, size:11pt)
   set heading(numbering: "1.")
   set page(numbering: "1")
   // #show link: underline
+
+  // text(lang:"ja", font:"YuMincho", size:11pt) 
 
   align(center, text(20pt, font:"Gothic")[
     *#title*
@@ -74,10 +82,13 @@
 // For theorem environement
 #let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
 #let proposition = thmbox("proposition", "Proposition", fill: rgb("#eeffee"))
+#let lemma = thmbox("lemma", "Lemma", fill: rgb("#eeffee"))
 #let corollary = thmplain("corollary", "Corollary", titlefmt: strong)
 #let definition = thmbox("definition", "Definition",fill: luma(245)).with(numbering: "1.")
 #let example = thmplain("example", "Example").with(numbering: "1.")
 #let proof = thmproof("proof", "Proof")
+#let claim = thmbox("claim", "Claim").with(numbering: none)
+#let remark = thmbox("remark", "Remark").with(numbering: none)
 
 // For Physics environment
 #let requirement = thmbox("requirement", "Requirement", fill: rgb("#eeffee"))
