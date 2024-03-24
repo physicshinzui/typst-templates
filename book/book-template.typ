@@ -34,7 +34,7 @@
   ]
 
   // For Equation's behaviour 
-  set math.equation(numbering: "(1)", supplement: [Eq])
+  set math.equation(numbering: "(1.)", supplement: [Eq])
 
   // For theorem environment : https://typst.app/universe/package/ctheorems
   show: thmrules.with(qed-symbol: $square$)
@@ -75,22 +75,24 @@
   doc
 
   // Put this after `doc`
-  bibliography(title:"References", style:"ieee", bibliography-file)
+  if bibliography-file != none { 
+    bibliography(title:"References", style:"ieee", bibliography-file)
+  }
 
 }
 
-// For theorem environement
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
-#let proposition = thmbox("proposition", "Proposition", fill: rgb("#eeffee"))
-#let lemma = thmbox("lemma", "Lemma", fill: rgb("#eeffee"))
-#let corollary = thmplain("corollary", "Corollary", titlefmt: strong)
-#let definition = thmbox("definition", "Definition",fill: luma(245)).with(numbering: "1.")
-#let example = thmplain("example", "Example").with(numbering: "1.")
-#let proof = thmproof("proof", "Proof")
-#let claim = thmbox("claim", "Claim").with(numbering: none)
-#let remark = thmbox("remark", "Remark").with(numbering: none)
+// // For theorem environement
+// #let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
+// #let proposition = thmbox("proposition", "Proposition", fill: rgb("#eeffee"))
+// #let lemma = thmbox("lemma", "Lemma", fill: rgb("#eeffee"))
+// #let corollary = thmplain("corollary", "Corollary", titlefmt: strong)
+// #let definition = thmbox("definition", "Definition",fill: luma(245)).with(numbering: "1.")
+// #let example = thmplain("example", "Example").with(numbering: "1.")
+// #let proof = thmproof("proof", "Proof")
+// #let claim = thmbox("claim", "Claim").with(numbering: none)
+// #let remark = thmbox("remark", "Remark").with(numbering: none)
 
-// For Physics environment
-#let requirement = thmbox("requirement", "Requirement", fill: rgb("#eeffee"))
-#let result = thmbox("result", "Result", fill: rgb("#eeffee"))
-#let derivation = thmproof("derivation", "Derivation")
+// // For Physics environment
+// #let requirement = thmbox("requirement", "Requirement", fill: rgb("#eeffee"))
+// #let result = thmbox("result", "Result", fill: rgb("#eeffee"))
+// #let derivation = thmproof("derivation", "Derivation")
