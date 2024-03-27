@@ -1,5 +1,6 @@
 // ======== Preamble =========
 #import "@preview/ctheorems:1.1.2": *
+#import "@preview/physica:0.9.2": *
 
 // Define my template as a function `conf`
 #let conf(
